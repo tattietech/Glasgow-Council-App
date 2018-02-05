@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="me.andrewbruce.assessment3.MenuActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/lblWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Hello Andrew. \nSee below for What's On!"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imgPlace1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/concert"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitXY"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="60dp"/>
+
+            <TextView
+                android:id="@+id/lblPlaceTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgPlace1"
+                android:text="Event Title"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/lblPlaceDesc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblPlaceTitle1"
+                android:layout_marginTop="2dp"
+                android:text="A short description of the event." />
+
+            <ImageView
+                android:id="@+id/imgPlace2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/concert"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitXY"
+                android:layout_below="@+id/lblPlaceDesc1"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="30dp" />
+
+            <TextView
+                android:id="@+id/lblPlaceTitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/imgPlace2"
+                android:text="Event Title"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/lblPlaceDesc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblPlaceTitle2"
+                android:layout_marginTop="2dp"
+                android:text="A short description of the event." />
+
+            <ImageView
+                android:id="@+id/imgPlace3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/concert"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitXY"
+                android:layout_marginTop="29dp"
+                android:layout_below="@+id/lblPlaceDesc2"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/lblPlaceTitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgPlace3"
+                android:text="Event Title"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/lblPlaceDesc3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblPlaceTitle3"
+                android:layout_marginTop="2dp"
+                android:text="A short description of the Event." />
+        </RelativeLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="me.andrewbruce.assessment3.MenuActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/lblWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Attraction Title"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imgPlace1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/kelvingrove"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitXY"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:id="@+id/lblPlaceDesc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgPlace1"
+                android:layout_marginTop="10dp"
+                android:text="A longer description on the attraction, sample text for design purposes - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+
+            <TextView
+                android:id="@+id/lblMap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblPlaceDesc1"
+                android:layout_marginTop="15dp"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:text="View on map"
+                android:textAlignment="center"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/lblWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblMap"
+                android:layout_marginTop="15dp"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:text="View Website"
+                android:textAlignment="center"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/lblCommentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblWebsite"
+                android:layout_marginTop="20dp"
+                android:text="Comments"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp" />
+
+            <ListView
+                android:id="@+id/lstComments"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/lblCommentTitle" />
+
+            <TextView
+                android:id="@+id/lblCommentTitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lstComments"
+                android:text="Add your comment and rating"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblCommentTitle2"
+                android:entries="@array/spinner_array" />
+
+            <EditText
+                android:id="@+id/txtAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/spinner"
+                android:layout_marginTop="20dp"
+                android:layout_toStartOf="@+id/btnAdd"
+                android:hint="Add  List Item" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:onClick="btnAdd_Click"
+                android:text="Add" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
