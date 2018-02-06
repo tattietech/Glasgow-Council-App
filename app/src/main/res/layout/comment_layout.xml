@@ -7,16 +7,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:text="Username"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:layout_toStartOf="@+id/listItemDate" />
 
     <TextView
         android:id="@+id/listItemComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Body of the comment."
         android:layout_marginTop="2dp"
         android:layout_marginBottom="10dp"
         android:layout_below="@id/listItemUsername"
-        />
+         />
+
+    <TextView
+        android:id="@+id/listItemDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="05/02/18 - 09:00AM"
+        android:layout_alignTop="@+id/listItemUsername"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/listItemComment" />
 
 </RelativeLayout>
