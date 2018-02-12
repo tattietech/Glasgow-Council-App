@@ -42,13 +42,14 @@
                 android:id="@+id/imgPlace1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/concert"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="60dp"
                 android:adjustViewBounds="true"
                 android:cropToPadding="false"
+                android:onClick="event1"
                 android:scaleType="fitXY"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="60dp"/>
+                app:srcCompat="@drawable/concert" />
 
             <TextView
                 android:id="@+id/lblPlaceTitle1"
@@ -57,7 +58,9 @@
                 android:layout_below="@id/imgPlace1"
                 android:text="Event Title"
                 android:textColor="@color/common_google_signin_btn_text_light_pressed"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:onClick="event1"
+                />
 
             <TextView
                 android:id="@+id/lblPlaceDesc1"
@@ -65,7 +68,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/lblPlaceTitle1"
                 android:layout_marginTop="2dp"
-                android:text="A short description of the event." />
+                android:text="A short description of the event."
+                android:onClick="event1"
+                />
 
             <ImageView
                 android:id="@+id/imgPlace2"

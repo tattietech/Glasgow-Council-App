@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="me.andrewbruce.assessment3.MenuActivity">
+    tools:context="me.andrewbruce.assessment3.Attraction3">
 
     <ScrollView
         android:layout_width="0dp"
@@ -42,7 +42,7 @@
                 android:adjustViewBounds="true"
                 android:cropToPadding="false"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/kelvingrove" />
+                app:srcCompat="@drawable/cathedral" />
 
             <TextView
                 android:id="@+id/lblPlaceDesc1"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgPlace1"
                 android:layout_marginTop="10dp"
-                android:text="The collections at Kelvingrove are extensive, wide-ranging and internationally significant. They include natural history, arms and armour, art from many art movements and periods of history and much more.  The most famous painting on display at Kelvingrove is the Salvador Dali masterpiece ‘Christ of St John of the Cross’. Sir Roger the Asian elephant is another big museum attraction. There is even a Spitfire plane hanging from the ceiling of the west court." />
+                android:text="The city's most significant historic building is 12th-century Glasgow Cathedral, also known as St. Mungo Cathedral or the High Kirk of Glasgow. Seen from both inside and out, it looks as if it dropped out of a giant mold: the lines are clear, and there's no superfluous ornamentation. Projecting from the south transept is the Blacader Aisle, named after the first bishop of Glasgow. The grandest room in the cathedral, however, is the crypt housing the tomb of St. Mungo, founder of the bishopric, who was buried here in AD 603." />
 
             <TextView
                 android:id="@+id/center"

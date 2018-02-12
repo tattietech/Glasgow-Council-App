@@ -24,7 +24,13 @@
         <activity android:name=".AttractionsActivity" />
         <activity android:name=".EventsActivity" />
         <activity android:name=".TravelActivity" />
-        <activity android:name=".Attraction1"></activity>
+        <activity android:name=".Attraction1" />
+        <activity android:name=".Event1Activity" />
+        <activity android:name=".Attraction2" />
+        <activity android:name=".Attraction3" />
+        <activity android:name=".Attraction4" />
+        <activity android:name=".Attraction5" />
+        <activity android:name=".Attraction6"></activity>
     </application>
 
 </manifest>

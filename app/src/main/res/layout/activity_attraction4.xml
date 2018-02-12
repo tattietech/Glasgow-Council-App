@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="me.andrewbruce.assessment3.MenuActivity">
+    tools:context="me.andrewbruce.assessment3.Attraction4">
 
     <ScrollView
         android:layout_width="0dp"
@@ -42,7 +42,7 @@
                 android:adjustViewBounds="true"
                 android:cropToPadding="false"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/kelvingrove" />
+                app:srcCompat="@drawable/merchantsquare" />
 
             <TextView
                 android:id="@+id/lblPlaceDesc1"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgPlace1"
                 android:layout_marginTop="10dp"
-                android:text="The collections at Kelvingrove are extensive, wide-ranging and internationally significant. They include natural history, arms and armour, art from many art movements and periods of history and much more.  The most famous painting on display at Kelvingrove is the Salvador Dali masterpiece ‘Christ of St John of the Cross’. Sir Roger the Asian elephant is another big museum attraction. There is even a Spitfire plane hanging from the ceiling of the west court." />
+                android:text="Located in the heart of the bustling Merchant City, just minutes away from George Square and the Style Mile shopping district, sits Merchant Square – a stylish hub of independent bars and restaurants all under one roof.  One of the city’s most popular destinations for socialising and eating out, Merchant Square is home to: Bar Square, Beer Café, Mercado, Metropolitan, Arisaig, O’Neills, Fanelli's, Boudoir Wine Bar and Bar Soba - giving you a great selection of bars and restaurants to choose from, no matter what the occasion." />
 
             <TextView
                 android:id="@+id/center"

@@ -18,4 +18,29 @@ public class AttractionsActivity extends AppCompatActivity {
         Intent i = new Intent(this, Attraction1.class);
         startActivity(i);
     }
+
+    public void attraction2_Click(View v) {
+        Intent i = new Intent(this, Attraction2.class);
+        startActivity(i);
+    }
+
+    public void attraction3_Click(View v) {
+        Intent i = new Intent(this, Attraction3.class);
+        startActivity(i);
+    }
+
+    public void attraction4_Click(View v) {
+        Intent i = new Intent(this, Attraction4.class);
+        startActivity(i);
+    }
+
+    public void attraction5_Click(View v) {
+        Intent i = new Intent(this, Attraction5.class);
+        startActivity(i);
+    }
+
+    public void attraction6_Click(View v) {
+        Intent i = new Intent(this, Attraction6.class);
+        startActivity(i);
+    }
 }

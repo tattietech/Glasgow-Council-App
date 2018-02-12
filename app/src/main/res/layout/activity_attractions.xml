@@ -40,11 +40,12 @@
 
             <ImageView
                 android:id="@+id/imgPlace1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
+                android:layout_below="@id/lblWelcome"
                 android:adjustViewBounds="true"
                 android:cropToPadding="false"
                 android:onClick="attraction1_Click"
@@ -57,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgPlace1"
                 android:onClick="attraction1_Click"
-                android:text="Attraction Title"
+                android:text="Kelvingrove Art Gallery and Museum"
                 android:textColor="@color/common_google_signin_btn_text_light_pressed"
                 android:textSize="18sp" />
 
@@ -68,19 +69,20 @@
                 android:layout_below="@id/lblPlaceTitle1"
                 android:layout_marginTop="2dp"
                 android:onClick="attraction1_Click"
-                android:text="A short description of the attraction." />
+                android:text="Kelvingrove Art Gallery and Mu​seum is Scotland's most visited free attraction.​ With 22 themed, state-of-the-art galleries displaying an astonishing 8000 objects." />
 
             <ImageView
                 android:id="@+id/imgPlace2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/kelvingrove"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/lblPlaceDesc1"
+                android:layout_marginTop="30dp"
                 android:adjustViewBounds="true"
                 android:cropToPadding="false"
                 android:scaleType="fitXY"
-                android:layout_below="@+id/lblPlaceDesc1"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="30dp" />
+                android:onClick="attraction2_Click"
+                app:srcCompat="@drawable/transportmuseum" />
 
             <TextView
                 android:id="@+id/lblPlaceTitle2"
@@ -88,7 +90,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/imgPlace2"
-                android:text="Attraction Title"
+                android:onClick="attraction2_Click"
+                android:text="The Riverside Museum"
                 android:textColor="@color/common_google_signin_btn_text_light_pressed"
                 android:textSize="18sp" />
 
@@ -96,30 +99,35 @@
                 android:id="@+id/lblPlaceDesc2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/lblPlaceTitle2"
-                android:layout_marginTop="2dp"
-                android:text="A short description of the attraction." />
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/lblPlaceTitle2"
+                android:text="2013 Winner of the European Museum of the Year. Highlights include steam trains, Glasgow trams and trolley buses, vintage cars, motorbikes and cycles."
+                android:onClick="attraction2_Click"
+                />
 
             <ImageView
                 android:id="@+id/imgPlace3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/kelvingrove"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/lblPlaceDesc2"
+                android:layout_marginTop="29dp"
                 android:adjustViewBounds="true"
                 android:cropToPadding="false"
+                android:onClick="attraction3_Click"
                 android:scaleType="fitXY"
-                android:layout_marginTop="29dp"
-                android:layout_below="@+id/lblPlaceDesc2"
-                android:layout_alignParentStart="true" />
+                app:srcCompat="@drawable/cathedral" />
 
             <TextView
                 android:id="@+id/lblPlaceTitle3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgPlace3"
-                android:text="Attraction Title"
+                android:text="Glasgow Cathedral"
                 android:textColor="@color/common_google_signin_btn_text_light_pressed"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:onClick="attraction3_Click"
+                />
 
             <TextView
                 android:id="@+id/lblPlaceDesc3"
@@ -127,7 +135,109 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/lblPlaceTitle3"
                 android:layout_marginTop="2dp"
-                android:text="A short description of the attraction." />
+                android:onClick="attraction3_Click"
+                android:text="The city's most significant historic building is 12th-century Glasgow Cathedral, also known as St. Mungo Cathedral or the High Kirk of Glasgow." />
+
+            <ImageView
+                android:id="@+id/imgPlace4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/lblPlaceDesc3"
+                android:layout_marginTop="29dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:onClick="attraction4_Click"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/merchantsquare" />
+
+            <TextView
+                android:id="@+id/lblPlaceTitle4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgPlace4"
+                android:onClick="attraction4_Click"
+                android:text="Merchant Square"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/lblPlaceDesc4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblPlaceTitle4"
+                android:layout_marginTop="2dp"
+                android:onClick="attraction4_Click"
+                android:text="the home of great food, drink and nightlife in the heart of glasgow’s vibrant merchant city." />
+
+            <ImageView
+                android:id="@+id/imgPlace5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/lblPlaceDesc4"
+                android:layout_marginTop="29dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/hampden"
+                android:onClick="attraction5_Click"
+                />
+
+            <TextView
+                android:id="@+id/lblPlaceTitle5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgPlace5"
+                android:text="Hampden Park"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp"
+                android:onClick="attraction5_Click"
+                />
+
+            <TextView
+                android:id="@+id/lblPlaceDesc5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblPlaceTitle5"
+                android:layout_marginTop="2dp"
+                android:onClick="attraction5_Click"
+                android:text="Scotland's national stadium and Home to the Scottish Football Museum and the Scottish Football Hall of Fame." />
+
+            <ImageView
+                android:id="@+id/imgPlace6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/lblPlaceDesc5"
+                android:layout_marginTop="29dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/drygate"
+                android:onClick="attraction6_Click"
+                />
+
+            <TextView
+                android:id="@+id/lblPlaceTitle6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgPlace6"
+                android:text="Drygate Brewing Co"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp"
+                android:onClick="attraction6_Click"
+                />
+
+            <TextView
+                android:id="@+id/lblPlaceDesc6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lblPlaceTitle6"
+                android:layout_marginTop="2dp"
+                android:text="The only Microbrewery operating in the historic heart of Glasgow."
+                android:onClick="attraction6_Click"
+                />
         </RelativeLayout>
     </ScrollView>
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="me.andrewbruce.assessment3.MenuActivity">
+    tools:context="me.andrewbruce.assessment3.Attraction5">
 
     <ScrollView
         android:layout_width="0dp"
@@ -42,7 +42,7 @@
                 android:adjustViewBounds="true"
                 android:cropToPadding="false"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/kelvingrove" />
+                app:srcCompat="@drawable/hampden" />
 
             <TextView
                 android:id="@+id/lblPlaceDesc1"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgPlace1"
                 android:layout_marginTop="10dp"
-                android:text="The collections at Kelvingrove are extensive, wide-ranging and internationally significant. They include natural history, arms and armour, art from many art movements and periods of history and much more.  The most famous painting on display at Kelvingrove is the Salvador Dali masterpiece ‘Christ of St John of the Cross’. Sir Roger the Asian elephant is another big museum attraction. There is even a Spitfire plane hanging from the ceiling of the west court." />
+                android:text="The Scottish Football Museum will reveal the sights, sounds and stories of the world's favourite game, in the country that took football to the world. Spend a day enjoying Scotland's football heritage, remembering the legends that inspire the champions of today.\n\nOn the Stadium Tour you will visit the underground roadway, team changing rooms and have the speed of your shot electronically measured in the players warm up area.\n\nThe Hampden Café is a perfect place to stop during your visit to Hampden Park. The Café boasts a fantastic range of hot and cold refreshments, snacks and meals. Before you complete your visit, don’t forget to look around the shop.  You will find all the latest replica kit and souvenirs – there is something for everyone" />
 
             <TextView
                 android:id="@+id/center"

@@ -5,24 +5,18 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.TimeZone;
 
-public class Attraction1 extends AppCompatActivity {
+public class Attraction6 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attraction1);
-        setTitle("Kelvingrove Gallery");
-
+        setContentView(R.layout.activity_attraction6);
         ArrayList<Comment> al = new ArrayList<>();
 
         CommentAdapter commentAdapter = new CommentAdapter(this, al);
@@ -45,12 +39,12 @@ public class Attraction1 extends AppCompatActivity {
     }
 
     public void btnMap_Click(View v) {
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2nR68xu"));
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2ExbYO7"));
         startActivity(i);
     }
 
     public void btnWebsite_Click(View v){
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2ECJaUk"));
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.drygate.com/brewery-and-tours/"));
         startActivity(i);
     }
 }
