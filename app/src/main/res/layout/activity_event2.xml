@@ -36,7 +36,7 @@
                 android:adjustViewBounds="true"
                 android:cropToPadding="false"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/kevin"
+                app:srcCompat="@drawable/flight"
                 android:layout_alignParentEnd="true" />
 
             <TextView
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgPlace1"
                 android:layout_marginTop="10dp"
-                android:text="Scotland’s biggest comedy export, Kevin Bridges, is back with his hotly anticipated 2018 tour Brand New.  Kevin broke box office records when his 2015 tour A Whole Different Story went on sale at the end of 2014, winning awards from Ticketmaster and Ents24 for the Fastest Selling Ticket of the year. The tour saw him sell over 500,000 tickets across 145 dates, including an incredible 16 nights at The Hydro in Glasgow." />
+                android:text="Grammy Award-winning folk comedy duo Flight of the Conchords (aka Jemaine Clement and Bret McKenzie) will return to the U.K. and Ireland in March 2018.  The “Flight of the Conchords sing Flight of the Conchords Tour,” is their first U.K. and Irish headlining tour in over 7 years. Jemaine and Bret will showcase new material at these shows. The arena and theatre tour will make stops in London, Birmingham, Manchester, Dublin, Glasgow, Leeds, and Liverpool." />
 
             <TextView
                 android:id="@+id/center"
@@ -66,7 +66,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toStartOf="@id/center"
                 android:background="#cf0058"
-                android:onClick="ViewOnMap_Click"
+                android:onClick="ViewOnMap2_Click"
                 android:text="View on Map"
                 android:textColor="@android:color/white" />
 
@@ -78,7 +78,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@id/center"
                 android:background="#cf0058"
-                android:onClick="GetTickets_Click"
+                android:onClick="GetTickets2_Click"
                 android:text="Get Tickets"
                 android:textColor="@android:color/white" />
 

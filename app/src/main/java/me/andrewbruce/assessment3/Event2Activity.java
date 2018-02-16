@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-public class TravelActivity extends AppCompatActivity {
+public class Event2Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_travel);
-        setTitle("Travel Links");
+        setContentView(R.layout.activity_event2);
+        setTitle("Flight Of The Conchords");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -29,18 +29,13 @@ public class TravelActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void trainTimes_Click(View v) {
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.scotrail.co.uk/"));
+    public void ViewOnMap2_Click(View v) {
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2o94vdy"));
         startActivity(i);
     }
 
-    public void busTimes_Click(View v) {
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.firstgroup.com/greater-glasgow"));
-        startActivity(i);
-    }
-
-    public void subwayTimes_Click(View v) {
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.spt.co.uk/subway/timetable/"));
+    public void GetTickets2_Click(View v) {
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2o4uST4"));
         startActivity(i);
     }
 }

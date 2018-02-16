@@ -36,8 +36,8 @@
                 android:adjustViewBounds="true"
                 android:cropToPadding="false"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/kevin"
-                android:layout_alignParentEnd="true" />
+                app:srcCompat="@drawable/trsnmt"
+                />
 
             <TextView
                 android:id="@+id/lblPlaceDesc1"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgPlace1"
                 android:layout_marginTop="10dp"
-                android:text="Scotland’s biggest comedy export, Kevin Bridges, is back with his hotly anticipated 2018 tour Brand New.  Kevin broke box office records when his 2015 tour A Whole Different Story went on sale at the end of 2014, winning awards from Ticketmaster and Ents24 for the Fastest Selling Ticket of the year. The tour saw him sell over 500,000 tickets across 145 dates, including an incredible 16 nights at The Hydro in Glasgow." />
+                android:text="TRNSMT is a Scottish rock and indie music festival on Glasgow Green, in the city's east end. After a thrilling debut in 2017 that saw sets from Radiohead, Kasabian and Biffy Clyro, the festival has announced it will expand to two weekends in 2018. \nIt Started as a replacement for T in the Park, the city centre bash includes all the revelry of a traditional music festival, but also gives festival-goers the chance to explore the city's bars, restaurants, nightclubs and cultural attractions." />
 
             <TextView
                 android:id="@+id/center"
@@ -66,7 +66,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toStartOf="@id/center"
                 android:background="#cf0058"
-                android:onClick="ViewOnMap_Click"
+                android:onClick="ViewOnMap3_Click"
                 android:text="View on Map"
                 android:textColor="@android:color/white" />
 
@@ -78,7 +78,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@id/center"
                 android:background="#cf0058"
-                android:onClick="GetTickets_Click"
+                android:onClick="GetTickets3_Click"
                 android:text="Get Tickets"
                 android:textColor="@android:color/white" />
 

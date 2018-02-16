@@ -4,19 +4,26 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.TimeZone;
 
-public class Attraction6 extends AppCompatActivity {
+public class Attraction1Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attraction6);
+        setContentView(R.layout.activity_attraction1);
+        setTitle("Kelvingrove Gallery");
+
         ArrayList<Comment> al = new ArrayList<>();
 
         CommentAdapter commentAdapter = new CommentAdapter(this, al);
@@ -36,15 +43,27 @@ public class Attraction6 extends AppCompatActivity {
         lstComments.setAdapter(commentAdapter);;
         lstComments.setScrollContainer(false);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void btnMap_Click(View v) {
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2ExbYO7"));
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2nR68xu"));
         startActivity(i);
     }
 
     public void btnWebsite_Click(View v){
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.drygate.com/brewery-and-tours/"));
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2ECJaUk"));
         startActivity(i);
     }
 }
