@@ -8,12 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class TravelActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel);
-        setTitle("Travel Links");
+        Intent i = getIntent();
+        String name = i.getStringExtra("name");
+        setTitle(name + "'s Travel Links");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

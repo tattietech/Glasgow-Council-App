@@ -22,8 +22,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void btnLogIn_Click(View v) {
-        Intent i = new Intent(this, MenuActivity.class);
-        startActivity(i);
+        String email = txtEmail.getText().toString();
+        String password = txtPassword.getText().toString();
+        DBManager DbManager = new DBManager(this);
+
+        if (email.isEmpty() || password.isEmpty()) {
+            new Alert().display(this, "Empty fields", "Must enter username and password");
+        } else if(DbManager.checkLogin(email, password)) {
+            Intent i = new Intent(this, MenuActivity.class);
+            i.putExtra("name", DbManager.getName(email));
+            finish();
+            startActivity(i);
+        } else {
+            new Alert().display(this, "Invalid Login", "Username or password incorrect");
+        }
     }
 
     public void lblRegister_Click(View v) {

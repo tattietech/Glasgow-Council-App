@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:text="Hello Andrew. \nWelcome to The City Of Glasgow Council App"
+                android:text=""
                 android:textColor="@color/common_google_signin_btn_text_light_pressed"
                 android:textSize="18sp" />
 

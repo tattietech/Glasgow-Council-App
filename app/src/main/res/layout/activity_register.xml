@@ -106,6 +106,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="#cf0058"
+        android:onClick="btnRegister_Click"
         android:text="Register"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"

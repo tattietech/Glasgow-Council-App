@@ -4,27 +4,28 @@ package me.andrewbruce.assessment3;
 import java.util.Date;
 
 public class Comment {
-    private String username;
+    private String email;
     private String comment;
     private String date;
+    private String attractionId;
 
     public Comment(String username, String comment, String date) {
-        this.username = username;
+        this.email = username;
         this.comment = comment;
         this.date = date;
     }
 
     public String getUsername() {
-        return username;
+        return email;
     }
 
     public String getComment() {
         return comment;
     }
 
-    public String getDate() {
-        return date;
-    }
+    public String getDate() {return date;}
+
+    public String getAttractionId(){return attractionId;}
 
 
 }

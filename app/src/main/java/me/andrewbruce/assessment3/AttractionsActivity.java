@@ -12,7 +12,9 @@ public class AttractionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attractions);
-        setTitle("Places to visit");
+        Intent i = getIntent();
+        String name = i.getStringExtra("name");
+        setTitle(name + "'s Places to visit");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
