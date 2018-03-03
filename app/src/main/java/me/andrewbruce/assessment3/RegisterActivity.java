@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class RegisterActivity extends AppCompatActivity {
     private EditText txtFirstName;
     private EditText txtLastName;
-    private EditText txtEmail;
+    private EditText txtUsername;
     private EditText txtPassword;
     private EditText txtRetypePassword;
 
@@ -22,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         txtFirstName=(EditText)findViewById(R.id.txtFirstName);
         txtLastName=(EditText)findViewById(R.id.txtLastName);
-        txtEmail=(EditText)findViewById(R.id.txtEmail);
+        txtUsername=(EditText)findViewById(R.id.txtUsername);
         txtPassword=(EditText)findViewById(R.id.txtPassword);
         txtRetypePassword=(EditText)findViewById(R.id.txtRetypePassword);
     }
@@ -36,28 +36,28 @@ public class RegisterActivity extends AppCompatActivity {
     public void btnRegister_Click(View v) {
         String firstName = txtFirstName.getText().toString();
         String lastName = txtLastName.getText().toString();
-        String email = txtEmail.getText().toString();
+        String username = txtUsername.getText().toString();
         String password = txtPassword.getText().toString();
         String retypePassword = txtRetypePassword.getText().toString();
         DBManager DbManager = new DBManager(this);
         Alert alert = new Alert();
 
-        if(firstName.isEmpty() || lastName.isEmpty() || email.isEmpty()
+        if(firstName.isEmpty() || lastName.isEmpty() || username.isEmpty()
                 || password.isEmpty() || retypePassword.isEmpty()) {
             alert.display(this, "Empty fields", "Please fill in all fields");
         } else if (!password.equals(retypePassword)) {
             alert.display(this, "Passwords Don't match", "Passwords do not match, please try again");
         } else if (password.length() < 8) {
             alert.display(this, "Too short", "Password must be 8 characters or more");
-        } else if (DbManager.emailTaken(email)) {
-            alert.display(this, "Duplicate email", "Sorry, that email is already in use");
-            txtEmail.setText("");
+        } else if (DbManager.usernameTaken(username)) {
+            alert.display(this, "Duplicate username", "Sorry, that username is already in use");
+            txtUsername.setText("");
         }
         else {
             User user = new User();
             user.setFirstName(firstName);
             user.setLastName(lastName);
-            user.setEmail(email);
+            user.setUsername(username);
             user.setPassword(password);
             try {
                 DbManager.addUser(user);

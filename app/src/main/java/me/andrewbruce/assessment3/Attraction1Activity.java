@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -17,34 +19,20 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class Attraction1Activity extends AppCompatActivity {
-
+    private String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attraction1);
         setTitle("Kelvingrove Gallery");
 
-        ArrayList<Comment> al = new ArrayList<>();
-
-        CommentAdapter commentAdapter = new CommentAdapter(this, al);
-        ListView lstComments = (ListView)findViewById(R.id.lstComments);
-
-        Date date = new Date();
-        String modifiedDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date);
-
-        int i;
-        for(i=0; i<4;i++) {
-            Comment comment = new Comment("Username", "This is the comments main body " + i + " ", modifiedDate);
-            al.add(comment);
-        }
-
-        lstComments.getLayoutParams().height = 200 * (i);
-        lstComments.requestLayout();
-        lstComments.setAdapter(commentAdapter);;
-        lstComments.setScrollContainer(false);
+        Intent i = getIntent();
+        username = i.getStringExtra("username");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        displayComments();
     }
 
     @Override
@@ -65,5 +53,43 @@ public class Attraction1Activity extends AppCompatActivity {
     public void btnWebsite_Click(View v){
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2ECJaUk"));
         startActivity(i);
+    }
+
+    public void btnAdd_Click(View v) {
+        EditText txtComment=(EditText)findViewById(R.id.txtComment);
+        Spinner spnRating=(Spinner)findViewById(R.id.spnRating);
+
+        String commentBody = txtComment.getText().toString();
+        int rating = Integer.parseInt(spnRating.getSelectedItem().toString());
+
+        Comment comment = new Comment(1, username, commentBody, rating);
+
+        try {
+            DBManager db = new DBManager(this);
+            db.addComment(comment);
+            txtComment.setText("");
+            displayComments();
+            Toast.makeText(this, "Post successful", Toast.LENGTH_SHORT).show();
+        } catch(Exception ex) {
+            new Alert().display(this, "Error", ex.toString());
+            return;
+        }
+    }
+
+    public void displayComments() {
+        DBManager db = new DBManager(this);
+        ArrayList<Comment> comments = db.getComments(1);
+
+        CommentAdapter commentAdapter = new CommentAdapter(this, comments);
+        ListView lstComments = (ListView)findViewById(R.id.lstComments);
+
+        //Date date = new Date();
+        //String modifiedDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date);
+
+
+        lstComments.getLayoutParams().height = 200 * (comments.size());
+        lstComments.requestLayout();
+        lstComments.setAdapter(commentAdapter);
+        lstComments.setScrollContainer(false);
     }
 }

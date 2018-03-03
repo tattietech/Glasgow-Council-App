@@ -20,25 +20,6 @@ public class Attraction4Activity extends AppCompatActivity {
         setContentView(R.layout.activity_attraction4);
         setTitle("Merchant Square");
 
-        ArrayList<Comment> al = new ArrayList<>();
-
-        CommentAdapter commentAdapter = new CommentAdapter(this, al);
-        ListView lstComments = (ListView)findViewById(R.id.lstComments);
-
-        Date date = new Date();
-        String modifiedDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date);
-
-        int i;
-        for(i=0; i<4;i++) {
-            Comment comment = new Comment("Username", "This is the comments main body " + i + " ", modifiedDate);
-            al.add(comment);
-        }
-
-        lstComments.getLayoutParams().height = 200 * (i);
-        lstComments.requestLayout();
-        lstComments.setAdapter(commentAdapter);;
-        lstComments.setScrollContainer(false);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText txtEmail;
+    private EditText txtUsername;
     private EditText txtPassword;
 
     @Override
@@ -16,21 +16,22 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         setTitle("Log In");
 
-        txtEmail = (EditText)findViewById(R.id.txtEmail);
+        txtUsername = (EditText)findViewById(R.id.txtUsername);
         txtPassword = (EditText)findViewById(R.id.txtPassword);
 
     }
 
     public void btnLogIn_Click(View v) {
-        String email = txtEmail.getText().toString();
+        String username = txtUsername.getText().toString();
         String password = txtPassword.getText().toString();
         DBManager DbManager = new DBManager(this);
 
-        if (email.isEmpty() || password.isEmpty()) {
+        if (username.isEmpty() || password.isEmpty()) {
             new Alert().display(this, "Empty fields", "Must enter username and password");
-        } else if(DbManager.checkLogin(email, password)) {
+        } else if(DbManager.checkLogin(username, password)) {
             Intent i = new Intent(this, MenuActivity.class);
-            i.putExtra("name", DbManager.getName(email));
+            i.putExtra("firstName", DbManager.getFirstName(username));
+            i.putExtra("username", username);
             finish();
             startActivity(i);
         } else {

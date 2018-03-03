@@ -7,14 +7,16 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class AttractionsActivity extends AppCompatActivity {
-
+    private String firstName;
+    private String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attractions);
         Intent i = getIntent();
-        String name = i.getStringExtra("name");
-        setTitle(name + "'s Places to visit");
+        firstName = i.getStringExtra("firstName");
+        username = i.getStringExtra("username");
+        setTitle(firstName + "'s Places to visit");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -32,6 +34,8 @@ public class AttractionsActivity extends AppCompatActivity {
 
     public void attraction1_Click(View v) {
         Intent i = new Intent(this, Attraction1Activity.class);
+        i.putExtra("firstName", firstName);
+        i.putExtra("username", username);
         startActivity(i);
     }
 

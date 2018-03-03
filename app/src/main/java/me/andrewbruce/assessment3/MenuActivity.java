@@ -8,22 +8,24 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity {
-    private String name;
+    private String firstName;
+    private String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
         Intent i = getIntent();
-        name = i.getStringExtra("name");
+        firstName = i.getStringExtra("firstName");
+        username = i.getStringExtra("username");
 
-        setTitle(name + "'s Main Menu");
+        setTitle(firstName + "'s Main Menu");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         TextView lblWelcome = (TextView)findViewById(R.id.lblWelcome);
-        lblWelcome.setText("Hello " + name + ".\nWelcome to The City Of Glasgow Council App");
+        lblWelcome.setText("Hello " + firstName + ".\nWelcome to The City Of Glasgow Council App");
     }
 
     @Override
@@ -40,19 +42,20 @@ public class MenuActivity extends AppCompatActivity {
 
     public void attractions_Click(View v) {
         Intent i = new Intent(this, AttractionsActivity.class);
-        i.putExtra("name", name);
+        i.putExtra("firstName", firstName);
+        i.putExtra("username", username);
         startActivity(i);
     }
 
     public void events_Click(View v) {
         Intent i = new Intent(this, EventsActivity.class);
-        i.putExtra("name", name);
+        i.putExtra("firstName", firstName);
         startActivity(i);
     }
 
     public void travel_Click(View v) {
         Intent i = new Intent(this, TravelActivity.class);
-        i.putExtra("name", name);
+        i.putExtra("firstName", firstName);
         startActivity(i);
     }
 }

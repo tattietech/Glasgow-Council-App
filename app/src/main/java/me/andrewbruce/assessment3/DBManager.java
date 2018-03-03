@@ -17,7 +17,7 @@ public class DBManager extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_FIRST_NAME = "first_name";
     public static final String COLUMN_LAST_NAME = "last_name";
-    public static final String COLUMN_EMAIL = "email";
+    public static final String COLUMN_USERNAME = "username";
     public static final String COLUMN_PASSWORD = "password";
 
     //Final private variables to hold the columns for the comments table
@@ -38,7 +38,7 @@ public class DBManager extends SQLiteOpenHelper {
         //build a string which contains the necessary SQL to create the USERS table
         final String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_USERS +
                 "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
-                COLUMN_EMAIL + " TEXT," + COLUMN_PASSWORD + " TEXT," +
+                COLUMN_USERNAME + " TEXT," + COLUMN_PASSWORD + " TEXT," +
                 COLUMN_FIRST_NAME + " TEXT," + COLUMN_LAST_NAME + " TEXT" +
                 ")";
 
@@ -49,7 +49,7 @@ public class DBManager extends SQLiteOpenHelper {
         //build a string which contains the necessary SQL to create the REVIEWS table
         final String CREATE_COMMENTS_TABLE = "CREATE TABLE " + TABLE_COMMENTS +
                 "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
-                COLUMN_ATTRACTION_ID + " TEXT," + COLUMN_EMAIL + " TEXT," +
+                COLUMN_ATTRACTION_ID + " INT," + COLUMN_USERNAME + " TEXT," +
                 COLUMN_ATTRACTION_COMMENT + " TEXT," + COLUMN_ATTRACTION_RATING + " INT" +
                 ")";
 
@@ -69,7 +69,7 @@ public class DBManager extends SQLiteOpenHelper {
         //call the put method to add the data we wish for a certain column
         values.put(COLUMN_FIRST_NAME, user.getFirstName());
         values.put(COLUMN_LAST_NAME, user.getLastName());
-        values.put(COLUMN_EMAIL, user.getEmail());
+        values.put(COLUMN_USERNAME, user.getUsername());
         values.put(COLUMN_PASSWORD, user.getPassword());
 
         //get a connection to the db we setup
@@ -83,10 +83,10 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
     //Check if new username is already in table - takes in the email address
-    public boolean emailTaken(String email) {
+    public boolean usernameTaken(String username) {
         //build a string which contains the necessary SQL to check if the username exists
-        String query = "SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL +
-                " = '" + email + "'";
+        String query = "SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME +
+                " = '" + username + "'";
 
         //get a connection to the db we setup
         SQLiteDatabase db = this.getWritableDatabase();
@@ -113,10 +113,10 @@ public class DBManager extends SQLiteOpenHelper {
 
     //CheckLogin method confirms if username is in database and if so checks if stored password matches input
     //both checks must pass to return true - the user logged in correctly
-    public boolean checkLogin(String email, String password) {
+    public boolean checkLogin(String username, String password) {
         //build a string which contains the necessary SQL to check if the username and password combo ecist
-        String query = "SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL + " = '" +
-                email + "' AND " + COLUMN_PASSWORD + " = '" + password + "'";
+        String query = "SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = '" +
+                username + "' AND " + COLUMN_PASSWORD + " = '" + password + "'";
 
         //get a connection to the db we setup
         SQLiteDatabase db = this.getWritableDatabase();
@@ -139,16 +139,57 @@ public class DBManager extends SQLiteOpenHelper {
         return valid;
     }
 
-    public String getName(String email) {
-        String query = "SELECT " + COLUMN_FIRST_NAME + " FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL + " = '" + email + "'";
+    // passes in an email address and returns the first name of the account it belongs to
+    public String getFirstName(String username) {
+        String query = "SELECT " + COLUMN_FIRST_NAME + " FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = '" + username + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor c = db.rawQuery(query, null);
-        String name = "";
+        String firstName = "";
 
         if (c.moveToFirst()) {
-            name = c.getString(c.getColumnIndex(COLUMN_FIRST_NAME));
+            firstName = c.getString(c.getColumnIndex(COLUMN_FIRST_NAME));
         }
 
-        return name;
+        return firstName;
     }
+
+    // add comment to the comment table
+    public void addComment(Comment comment) {
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_ATTRACTION_ID, comment.getAttractionId());
+        values.put(COLUMN_USERNAME, comment.getUsername());
+        values.put(COLUMN_ATTRACTION_COMMENT, comment.getComment());
+        values.put(COLUMN_ATTRACTION_RATING, comment.getRating());
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.insert(TABLE_COMMENTS, null, values);
+
+        db.close();
+    }
+
+    public ArrayList<Comment> getComments(int attractionId) {
+        ArrayList<Comment> comments = new ArrayList<>();
+
+        String query =
+                "SELECT * FROM " + TABLE_COMMENTS + " WHERE " + COLUMN_ATTRACTION_ID +
+                " = " + attractionId + "";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        if(cursor.getCount() > 0) {
+            cursor.moveToFirst();
+
+            Comment comment = new Comment(cursor.getInt(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4));
+
+            comments.add(comment);
+        }
+
+        return comments;
+    }
+
+
 }

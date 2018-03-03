@@ -102,7 +102,7 @@
 
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spnRating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/lblCommentTitle"
@@ -110,7 +110,7 @@
                 android:entries="@array/spinner_array" />
 
             <EditText
-                android:id="@+id/txtAdd"
+                android:id="@+id/txtComment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/btnAdd"
@@ -124,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_below="@+id/spinner"
+                android:layout_below="@+id/spnRating"
                 android:layout_marginTop="5dp"
                 android:background="#cf0058"
                 android:onClick="btnAdd_Click"
@@ -135,7 +135,7 @@
                 android:id="@+id/lstComments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtAdd"
+                android:layout_below="@id/txtComment"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 android:scrollbars="none" />
