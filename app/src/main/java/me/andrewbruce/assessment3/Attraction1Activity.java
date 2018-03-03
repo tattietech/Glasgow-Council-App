@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -19,8 +20,10 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.TimeZone;
 
+
 public class Attraction1Activity extends AppCompatActivity {
     private String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +35,6 @@ public class Attraction1Activity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        displayComments();
     }
 
     @Override
@@ -72,7 +73,6 @@ public class Attraction1Activity extends AppCompatActivity {
             DBManager db = new DBManager(this);
             db.addComment(comment);
             txtComment.setText("");
-            displayComments();
             Toast.makeText(this, "Post successful", Toast.LENGTH_SHORT).show();
         } catch(Exception ex) {
             new Alert().display(this, "Error", ex.toString());
@@ -80,17 +80,10 @@ public class Attraction1Activity extends AppCompatActivity {
         }
     }
 
-    public void displayComments() {
-        DBManager db = new DBManager(this);
-        ArrayList<Comment> comments = db.getComments(1);
-        Collections.reverse(comments);
-
-        CommentAdapter commentAdapter = new CommentAdapter(this, comments);
-        ListView lstComments = (ListView)findViewById(R.id.lstComments);
-
-        lstComments.getLayoutParams().height = 250 * (comments.size());
-        lstComments.requestLayout();
-        lstComments.setAdapter(commentAdapter);
-        lstComments.setScrollContainer(false);
+    public void btnComments_Click(View v) {
+        Intent i = new Intent(this, CommentsActivity.class);
+        i.putExtra("attractionId", 1);
+        i.putExtra("title", "Kelvingrove Gallery");
+        startActivity(i);
     }
 }
