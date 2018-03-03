@@ -24,6 +24,7 @@ public class DBManager extends SQLiteOpenHelper {
     public static final String COLUMN_ATTRACTION_ID = "attractionId";
     public static final String COLUMN_ATTRACTION_COMMENT = "attractionComment";
     public static final String COLUMN_ATTRACTION_RATING = "attractionRating";
+    public static final String COLUMN_DATE = "date";
 
     //constructor for the DBHandler class - takes in a parameter defining the context
     public DBManager(Context context) {
@@ -50,7 +51,7 @@ public class DBManager extends SQLiteOpenHelper {
         final String CREATE_COMMENTS_TABLE = "CREATE TABLE " + TABLE_COMMENTS +
                 "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
                 COLUMN_ATTRACTION_ID + " INT," + COLUMN_USERNAME + " TEXT," +
-                COLUMN_ATTRACTION_COMMENT + " TEXT," + COLUMN_ATTRACTION_RATING + " INT" +
+                COLUMN_ATTRACTION_COMMENT + " TEXT," + COLUMN_ATTRACTION_RATING + " INT," + COLUMN_DATE + " TEXT" +
                 ")";
 
         //execute the sql by calling the execSQL method
@@ -161,6 +162,7 @@ public class DBManager extends SQLiteOpenHelper {
         values.put(COLUMN_USERNAME, comment.getUsername());
         values.put(COLUMN_ATTRACTION_COMMENT, comment.getComment());
         values.put(COLUMN_ATTRACTION_RATING, comment.getRating());
+        values.put(COLUMN_DATE, comment.getDate());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -182,10 +184,11 @@ public class DBManager extends SQLiteOpenHelper {
 
         if(cursor.getCount() > 0) {
             cursor.moveToFirst();
+            while(cursor.moveToNext()) {
+                Comment comment = new Comment(cursor.getInt(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5));
 
-            Comment comment = new Comment(cursor.getInt(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4));
-
-            comments.add(comment);
+                comments.add(comment);
+            }
         }
 
         return comments;

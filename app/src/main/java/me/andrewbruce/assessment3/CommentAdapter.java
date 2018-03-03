@@ -27,12 +27,18 @@ public class CommentAdapter extends ArrayAdapter<Comment> {
 
         //Grab references of view so we can populate them with specific note row data
         TextView listItemUsername = (TextView)convertView.findViewById(R.id.listItemUsername);
+        TextView listItemRating = (TextView)convertView.findViewById(R.id.listItemRating);
         TextView listItemComment = (TextView)convertView.findViewById(R.id.listItemComment);
-        //TextView listItemDate = (TextView)convertView.findViewById(R.id.listItemDate);
+        TextView listItemDate = (TextView)convertView.findViewById(R.id.listItemDate);
+        TextView listItemTime = (TextView)convertView.findViewById(R.id.listItemTime);
+
+        String[] dateTime = comment.getDate().split("\\s+");
 
         listItemUsername.setText(comment.getUsername());
+        listItemRating.setText("Rating: " + Integer.toString(comment.getRating()) + "/5");
         listItemComment.setText(comment.getComment());
-        //listItemDate.setText(comment.getDate().toString());
+        listItemDate.setText(dateTime[0]);
+        listItemTime.setText(dateTime[1]);
 
         return convertView;
     }

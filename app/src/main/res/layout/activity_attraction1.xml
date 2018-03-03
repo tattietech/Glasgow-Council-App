@@ -89,14 +89,23 @@
                 android:text="View Website"
                 android:textColor="@android:color/white" />
 
+            <View
+                android:id="@+id/border1"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/btnWebsite"
+                android:background="@android:color/darker_gray"
+                />
+
 
             <TextView
                 android:id="@+id/lblCommentTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/btnMap"
+                android:layout_below="@id/border1"
                 android:layout_marginTop="20dp"
-                android:text="Comments"
+                android:text="Leave a comment"
                 android:textColor="@color/common_google_signin_btn_text_light_pressed"
                 android:textSize="18sp" />
 
@@ -106,36 +115,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/lblCommentTitle"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:entries="@array/spinner_array" />
 
             <EditText
                 android:id="@+id/txtComment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/btnAdd"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/btnAdd"
-                android:hint="Comment" />
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_below="@id/spnRating"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/commentbox"
+                android:gravity="top"
+                android:hint="Comment"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLength="2000"
+                android:maxLines="4"
+                />
 
             <Button
                 android:id="@+id/btnAdd"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/spnRating"
-                android:layout_marginTop="5dp"
+                android:layout_below="@id/txtComment"
+                android:layout_marginTop="2dp"
                 android:background="#cf0058"
                 android:onClick="btnAdd_Click"
-                android:text="Add"
-                android:textColor="@android:color/background_light" />
+                android:text="Add Comment"
+                android:textColor="@android:color/white" />
+
+            <View
+                android:id="@+id/border2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/btnAdd"
+                android:background="@android:color/darker_gray"
+                />
+
+            <TextView
+                android:id="@+id/lblOtherCommentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/border2"
+                android:layout_marginTop="20dp"
+                android:text="Comments"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="18sp" />
 
             <ListView
                 android:id="@+id/lstComments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txtComment"
+                android:layout_below="@id/lblOtherCommentTitle"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 android:scrollbars="none" />

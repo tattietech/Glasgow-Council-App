@@ -12,24 +12,45 @@
         android:gravity="center_vertical"
         android:layout_toStartOf="@+id/listItemDate" />
 
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/listItemRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/listItemUsername"
+        android:layout_marginTop="2dp"
+        android:layout_toStartOf="@+id/listItemDate"
+        android:gravity="center_vertical"
+        android:text="Rating: 5/5"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textSize="14sp" />
+
     <TextView
         android:id="@+id/listItemComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Body of the comment."
-        android:layout_marginTop="2dp"
+        android:layout_below="@id/listItemRating"
         android:layout_marginBottom="10dp"
-        android:layout_below="@id/listItemUsername"
-         />
+        android:layout_marginTop="5dp"
+        android:text="Body of the comment." />
 
     <TextView
         android:id="@+id/listItemDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
-        android:text="05/02/18 - 09:00AM"
+        android:text="05/02/18"
         android:layout_alignTop="@+id/listItemUsername"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/listItemComment" />
+        android:layout_above="@+id/listItemRating" />
+
+    <TextView
+        android:id="@+id/listItemTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="15:25:06"
+        android:layout_alignTop="@id/listItemRating"
+        android:layout_alignParentEnd="true"
+        />
 
 </RelativeLayout>

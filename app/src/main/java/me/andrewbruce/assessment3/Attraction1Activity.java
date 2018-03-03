@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -62,7 +63,10 @@ public class Attraction1Activity extends AppCompatActivity {
         String commentBody = txtComment.getText().toString();
         int rating = Integer.parseInt(spnRating.getSelectedItem().toString());
 
-        Comment comment = new Comment(1, username, commentBody, rating);
+        Date date = new Date();
+        String modifiedDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date);
+
+        Comment comment = new Comment(1, username, commentBody, rating, modifiedDate);
 
         try {
             DBManager db = new DBManager(this);
@@ -79,15 +83,12 @@ public class Attraction1Activity extends AppCompatActivity {
     public void displayComments() {
         DBManager db = new DBManager(this);
         ArrayList<Comment> comments = db.getComments(1);
+        Collections.reverse(comments);
 
         CommentAdapter commentAdapter = new CommentAdapter(this, comments);
         ListView lstComments = (ListView)findViewById(R.id.lstComments);
 
-        //Date date = new Date();
-        //String modifiedDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date);
-
-
-        lstComments.getLayoutParams().height = 200 * (comments.size());
+        lstComments.getLayoutParams().height = 250 * (comments.size());
         lstComments.requestLayout();
         lstComments.setAdapter(commentAdapter);
         lstComments.setScrollContainer(false);

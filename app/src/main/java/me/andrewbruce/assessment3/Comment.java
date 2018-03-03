@@ -10,11 +10,12 @@ public class Comment {
     private int attractionId;
     private int rating;
 
-    public Comment(int attractionId, String username, String comment, int rating) {
+    public Comment(int attractionId, String username, String comment, int rating, String date) {
         this.username = username;
         this.comment = comment;
         this.attractionId = attractionId;
         this.rating = rating;
+        this.date = date;
     }
 
     public void setUsername(String username) {
