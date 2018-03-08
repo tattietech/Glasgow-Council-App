@@ -1,6 +1,7 @@
 package me.andrewbruce.assessment3;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+// created my own Array Adapter specifically for comments so they can be laid out better
 public class CommentAdapter extends ArrayAdapter<Comment> {
 
     public CommentAdapter(Context context, ArrayList<Comment> listItems) {
@@ -32,8 +34,11 @@ public class CommentAdapter extends ArrayAdapter<Comment> {
         TextView listItemDate = (TextView)convertView.findViewById(R.id.listItemDate);
         TextView listItemTime = (TextView)convertView.findViewById(R.id.listItemTime);
 
+        // seperates date and time so they can be displayed on seperate lines
         String[] dateTime = comment.getDate().split("\\s+");
 
+        // sets the data of our comment_layout items to data contained in the
+        // comment object declared at the top
         listItemUsername.setText(comment.getUsername());
         listItemRating.setText("Rating: " + Integer.toString(comment.getRating()) + "/5");
         listItemComment.setText(comment.getComment());

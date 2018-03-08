@@ -12,14 +12,20 @@ public class EventsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-        Intent i = getIntent();
-        String name = i.getStringExtra("name");
-        setTitle(name + "'s Events");
 
+        // gets users name from intent
+        Intent i = getIntent();
+        String firstName = i.getStringExtra("firstName");
+
+        // personalised title using name
+        setTitle(firstName + "'s Events");
+
+        // displays back arrow in tool bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
+    // fires when back arrow is pressed, finished current activity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
@@ -30,6 +36,7 @@ public class EventsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // below 3 methods are links to specific event pages
     public void event1(View v) {
         Intent i = new Intent(this, Event1Activity.class);
         startActivity(i);

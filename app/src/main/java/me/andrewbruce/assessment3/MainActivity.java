@@ -15,17 +15,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // calls finishSplashScreen() method after 1.5 seconds
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 finishSplashScreen();
             }
-        }, 3000);
+        }, 1500);
 
     }
 
     public void finishSplashScreen() {
+        // finishes the splash screen activity and starts the main menu
         finish();
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);

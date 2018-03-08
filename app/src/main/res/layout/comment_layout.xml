@@ -7,10 +7,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_toStartOf="@+id/listItemDate"
+        android:gravity="center_vertical"
         android:text="Username"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:gravity="center_vertical"
-        android:layout_toStartOf="@+id/listItemDate" />
+        android:textColor="#cf0058"
+        android:textSize="20sp" />
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/listItemRating"
@@ -22,7 +24,7 @@
         android:gravity="center_vertical"
         android:text="Rating: 5/5"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/listItemComment"

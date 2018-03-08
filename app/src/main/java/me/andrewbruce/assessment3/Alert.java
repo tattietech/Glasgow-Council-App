@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 
+// class and method to display errors in a Alert Dialog Box
 public class Alert {
     public void display(Context context, String title, String message) {
         new AlertDialog.Builder(context)

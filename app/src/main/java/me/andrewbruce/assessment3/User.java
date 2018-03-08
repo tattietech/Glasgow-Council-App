@@ -7,6 +7,22 @@ public class User {
     private String username;
     private String password;
 
+    // default constructor
+    public User(){
+        firstName = "";
+        lastName = "";
+        username = "";
+        password = "";
+    }
+
+    // overloaded constructor
+    public User(String firstName, String lastName, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+    }
+
     //Getters
     public String getFirstName() {
         return firstName;
@@ -33,9 +49,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public void setUsername(String username) {this.username = username;}
 
     public void setPassword(String password) {
         this.password = password;

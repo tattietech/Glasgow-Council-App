@@ -15,12 +15,15 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        // takes the users first name and username from the intent
         Intent i = getIntent();
         firstName = i.getStringExtra("firstName");
         username = i.getStringExtra("username");
 
+        // personalised greeting with users first name
         setTitle(firstName + "'s Main Menu");
 
+        // displays back arrow in tool bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -28,6 +31,7 @@ public class MenuActivity extends AppCompatActivity {
         lblWelcome.setText("Hello " + firstName + ".\nWelcome to The City Of Glasgow Council App");
     }
 
+    // fires when back arrow is pressed, finished current activity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
@@ -40,6 +44,7 @@ public class MenuActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // below 3 methods are links to Attractions, Events, and Travel links
     public void attractions_Click(View v) {
         Intent i = new Intent(this, AttractionsActivity.class);
         i.putExtra("firstName", firstName);

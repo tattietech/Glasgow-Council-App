@@ -18,11 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".Attraction1Activity" android:windowSoftInputMode="adjustResize">
-        </activity>
-
+            android:name=".Attraction1Activity"
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MenuActivity" />
@@ -37,7 +35,8 @@
         <activity android:name=".Attraction6Activity" />
         <activity android:name=".Event2Activity" />
         <activity android:name=".Event3Activity" />
-        <activity android:name=".CommentsActivity"></activity>
+        <activity android:name=".CommentsActivity" />
+        <activity android:name=".ResetPasswordActivity"></activity>
     </application>
 
 </manifest>

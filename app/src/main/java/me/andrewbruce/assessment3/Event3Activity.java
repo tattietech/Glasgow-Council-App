@@ -13,12 +13,16 @@ public class Event3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event3);
+
+        // sets title
         setTitle("TRNSMT");
 
+        // displays back arrow in tool bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
+    // fires when back arrow is pressed, finished current activity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
@@ -29,11 +33,13 @@ public class Event3Activity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // opens google map location of event venue
     public void ViewOnMap3_Click(View v) {
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2F78GPj"));
         startActivity(i);
     }
 
+    // opens ticket website for event
     public void GetTickets3_Click(View v) {
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://trnsmtfest.com/tickets"));
         startActivity(i);

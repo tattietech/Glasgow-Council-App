@@ -47,7 +47,7 @@ public class DBManager extends SQLiteOpenHelper {
         db.execSQL(CREATE_USERS_TABLE);
 
 
-        //build a string which contains the necessary SQL to create the REVIEWS table
+        //build a string which contains the necessary SQL to create the COMMENTS table
         final String CREATE_COMMENTS_TABLE = "CREATE TABLE " + TABLE_COMMENTS +
                 "(" + COLUMN_ID + " INTEGER PRIMARY KEY," +
                 COLUMN_ATTRACTION_ID + " INT," + COLUMN_USERNAME + " TEXT," +
@@ -83,7 +83,7 @@ public class DBManager extends SQLiteOpenHelper {
         db.close();
     }
 
-    //Check if new username is already in table - takes in the email address
+    //Check if new username is already in table - takes in the username
     public boolean usernameTaken(String username) {
         //build a string which contains the necessary SQL to check if the username exists
         String query = "SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME +
@@ -140,58 +140,103 @@ public class DBManager extends SQLiteOpenHelper {
         return valid;
     }
 
-    // passes in an email address and returns the first name of the account it belongs to
+    // passes in a username address and returns the first name of the account it belongs to
     public String getFirstName(String username) {
+        // query t be executed
         String query = "SELECT " + COLUMN_FIRST_NAME + " FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = '" + username + "'";
+
+        // creates instance of database
         SQLiteDatabase db = this.getWritableDatabase();
+
+        // cursor hold all of the values that are returned from our query
         Cursor c = db.rawQuery(query, null);
+
+        // blank string to store name
         String firstName = "";
 
+        // gets the first item from the cursor
         if (c.moveToFirst()) {
+            // gets the firstname from the item and coverts to string
             firstName = c.getString(c.getColumnIndex(COLUMN_FIRST_NAME));
         }
 
+        // returns name
         return firstName;
     }
 
     // add comment to the comment table
     public void addComment(Comment comment) {
+        // holds the values we will enter to the db and where they go
         ContentValues values = new ContentValues();
 
+        // assigns them
         values.put(COLUMN_ATTRACTION_ID, comment.getAttractionId());
         values.put(COLUMN_USERNAME, comment.getUsername());
         values.put(COLUMN_ATTRACTION_COMMENT, comment.getComment());
         values.put(COLUMN_ATTRACTION_RATING, comment.getRating());
         values.put(COLUMN_DATE, comment.getDate());
 
+        // creates instance of db
         SQLiteDatabase db = this.getWritableDatabase();
 
+        // inserts the contents of values in the COMMENTS table as a new row
         db.insert(TABLE_COMMENTS, null, values);
 
+        // closes the db
         db.close();
     }
 
+    // returns an array list of comments assigned to a particular attractionId
     public ArrayList<Comment> getComments(int attractionId) {
+        // array list to hold comments
         ArrayList<Comment> comments = new ArrayList<>();
 
+        // query to execute
         String query =
                 "SELECT * FROM " + TABLE_COMMENTS + " WHERE " + COLUMN_ATTRACTION_ID +
                 " = " + attractionId + "";
 
+        // instance of db
         SQLiteDatabase db = this.getWritableDatabase();
 
+        // cursor to contains data from executed query
         Cursor cursor = db.rawQuery(query, null);
 
+        // if there's something in the cursor
         if(cursor.getCount() > 0) {
+
+            // moves to the start
             cursor.moveToFirst();
+
+            // creates a new comment with our constructor
+            Comment comment = new Comment(cursor.getInt(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5));
+
+            // adds it to the array list
+            comments.add(comment);
+
+            // loops through the rest of the cursor items  doing the same
             while(cursor.moveToNext()) {
-                Comment comment = new Comment(cursor.getInt(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5));
+                comment = new Comment(cursor.getInt(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5));
 
                 comments.add(comment);
             }
         }
 
+        // returns the array list
         return comments;
+    }
+
+    // method to update a users password, takes the username and new password
+    public void updatePassword(String username, String newPassword) {
+
+        // update query to execute
+        String query =
+                "UPDATE " + TABLE_USERS + " SET " + COLUMN_PASSWORD + " = '" + newPassword +
+                        "' WHERE " + COLUMN_USERNAME + " = '" + username + "'";
+
+        // executes the query
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(query);
     }
 
 

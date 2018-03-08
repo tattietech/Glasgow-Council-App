@@ -12,14 +12,20 @@ public class TravelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel);
-        Intent i = getIntent();
-        String name = i.getStringExtra("name");
-        setTitle(name + "'s Travel Links");
 
+        // gets the users name from intent
+        Intent i = getIntent();
+        String firstName = i.getStringExtra("firstName");
+
+        // personalised greeting using users name
+        setTitle(firstName + "'s Travel Links");
+
+        // displays back arrow in tool bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
+    // fires when back arrow is pressed, finished current activity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
@@ -30,8 +36,13 @@ public class TravelActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // below 3 methods are just links to the specific travel websites
     public void trainTimes_Click(View v) {
+
+        // creates intent as a link and parses the hardcoded url into it
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.scotrail.co.uk/"));
+
+        // starts url
         startActivity(i);
     }
 
