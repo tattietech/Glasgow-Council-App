@@ -2,6 +2,8 @@
 
 An Android application for the City of Glasgow Council, developed as a final HND assessment project. This app provides Glasgow residents and visitors with information about local attractions, events, and travel options, with user accounts and a community rating/comment system.
 
+> **Note**: This is an academic project created for HND assessment purposes. The SDK versions and build tools reflect the time of development and are documented as-is for historical accuracy.
+
 ## Overview
 
 The Glasgow Council App is a comprehensive mobile application that serves as a digital hub for Glasgow city information. Users can create accounts, explore local attractions, discover upcoming events, access travel information, and share reviews and ratings with the community.
