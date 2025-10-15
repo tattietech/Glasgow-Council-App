@@ -1,8 +1,8 @@
 # Glasgow Council App
 
-An Android application for the City of Glasgow Council, developed as a final HND assessment project. This app provides Glasgow residents and visitors with information about local attractions, events, and travel options, with user accounts and a community rating/comment system.
+> **Note**: This is an academic project created while I was studying Software Engineering. The SDK versions and build tools reflect the time of development and are documented as-is for historical accuracy. It is not live nor will it be maintained any further.
 
-> **Note**: This is an academic project created for HND assessment purposes. The SDK versions and build tools reflect the time of development and are documented as-is for historical accuracy.
+An Android application for the City of Glasgow Council, developed as a final HND assessment project. This app provides Glasgow residents and visitors with information about local attractions, events, and travel options, with user accounts and a community rating/comment system.
 
 ## Overview
 
@@ -52,55 +52,6 @@ The Glasgow Council App is a comprehensive mobile application that serves as a d
   - Constraint Layout
   - JUnit (Testing)
 
-## Requirements
-
-- Android Studio (Arctic Fox or later recommended)
-- Android SDK with API 21+
-- Gradle build system
-- Android device or emulator running Android 5.0 or higher
-
-## Installation & Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/tattietech/Glasgow-Council-App.git
-   cd Glasgow-Council-App
-   ```
-
-2. **Open in Android Studio**
-   - Launch Android Studio
-   - Select "Open an existing Android Studio project"
-   - Navigate to the cloned repository folder
-   - Wait for Gradle sync to complete
-
-3. **Configure Build**
-   - Ensure you have Android SDK API 25 installed
-   - Build Tools version 27.0.1 required
-   - Google Play Services must be available
-
-4. **Run the Application**
-   - Connect an Android device via USB (with USB debugging enabled) or start an emulator
-   - Click the "Run" button in Android Studio or press Shift+F10
-   - Select your target device
-
-## Usage
-
-1. **First Time Setup**
-   - Launch the app
-   - Register a new account with your details
-   - Log in with your credentials
-
-2. **Exploring Features**
-   - Navigate through the main menu to access different sections
-   - Browse attractions, events, and travel information
-   - Click on items for detailed information
-
-3. **Adding Reviews**
-   - Navigate to any attraction
-   - Enter your comment in the text field
-   - Select a rating (1-5 stars)
-   - Submit your review
-
 ## Project Structure
 
 ```
@@ -133,18 +84,6 @@ The app uses SQLite with two main tables:
 
 - **users**: Stores user account information (id, username, password, first_name, last_name)
 - **comments**: Stores user reviews (id, attractionId, username, attractionComment, attractionRating, date)
-
-## Testing
-
-The project includes:
-- Unit tests in `app/src/test/`
-- Instrumented tests in `app/src/androidTest/`
-
-Run tests using:
-```bash
-./gradlew test
-./gradlew connectedAndroidTest
-```
 
 ## License
 
